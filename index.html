@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>KLANG · Manual de Marca v5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Figtree:wght@400;500;600&family=Nothing+You+Could+Do&display=swap" rel="stylesheet">
+<style>
+:root{
+  --linho:#F7F2EB; --esp:#1C1817; --esp2:#262120; --creme:#F3EBE3; --creme2:#E9DFD4; --rosa:#E8BCC1; --rosa2:#F6DCDF; --rosa-ink:#9A4E5C;
+  --taupe:#B9ADA6; --cinza:#6E625C; --line:rgba(243,235,227,.14); --line-l:#DCCFC2;
+  --display:'Jost',Futura,system-ui,sans-serif; --body:'Figtree',system-ui,sans-serif; --script:'Nothing You Could Do',cursive;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--esp);color:var(--creme);font-family:var(--body);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding:0 32px}
+section{padding:100px 0;border-top:1px solid var(--line)}
+section.light{background:var(--creme);color:var(--esp);border-top:none}
+p{color:#D6CCC4;max-width:64ch}
+.light p{color:var(--cinza)}
+.eyebrow{font-family:var(--display);font-weight:500;font-size:12px;letter-spacing:.38em;text-transform:uppercase;color:var(--rosa);display:flex;align-items:center;gap:14px;margin-bottom:24px}
+.light .eyebrow{color:var(--rosa-ink)}
+.eyebrow::before{content:"";width:34px;height:1px;background:currentColor}
+h1{font-family:var(--display);font-weight:500;font-size:clamp(56px,9vw,124px);line-height:.9;letter-spacing:-.01em;text-transform:uppercase}
+h1 em{font-style:normal;color:var(--rosa)}
+h2{font-family:var(--display);font-weight:400;font-size:clamp(34px,4.6vw,56px);line-height:1;letter-spacing:-.005em;text-transform:uppercase;margin-bottom:20px}
+h2 em{font-style:normal;color:var(--rosa)}
+.light h2 em{color:var(--rosa-ink)}
+h3{font-family:var(--display);font-weight:500;font-size:20px;margin-bottom:10px}
+.lead{font-size:19px;line-height:1.6;color:var(--creme)}
+.light .lead{color:var(--esp)}
+.script{font-family:var(--script);color:var(--rosa);font-weight:400;line-height:1.1}
+.light .script{color:var(--rosa-ink)}
+strong{font-weight:600;color:inherit}
+.grid{display:grid;gap:18px}
+.c2{grid-template-columns:repeat(2,minmax(0,1fr))}.c3{grid-template-columns:repeat(3,minmax(0,1fr))}.c4{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(max-width:860px){.c2,.c3,.c4{grid-template-columns:1fr}}
+.card{background:var(--esp2);border:1px solid var(--line);border-radius:22px;padding:28px}
+.light .card{background:#fff;border-color:var(--line-l)}
+.label{font-family:var(--display);font-size:11px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--taupe);margin-top:14px}
+.light .label{color:var(--cinza)}
+.mt{margin-top:44px}.mt2{margin-top:22px}
+
+/* hero */
+.hero{padding:40px 0 0;position:relative;overflow:hidden;border:none}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-bottom:70px}
+.nav .lock{width:280px;height:auto}
+.nav .pill{font-family:var(--display);font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--taupe)}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+@media(max-width:860px){.hero-grid{grid-template-columns:1fr}}
+.hero .kicker{font-family:var(--display);font-weight:500;font-size:13px;letter-spacing:.42em;text-transform:uppercase;color:var(--taupe);margin-bottom:22px}
+.hero-side{position:relative;min-height:420px;border-radius:220px 220px 24px 24px;background:var(--esp2);border:1px solid var(--line);overflow:hidden;display:flex;align-items:center;justify-content:center}
+.hero-side .script{font-size:54px;transform:rotate(-8deg);text-align:center}
+.hero-side .glow{position:absolute;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(232,188,193,.22),transparent 65%);right:-120px;top:-80px}
+.toc{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:4px 26px;margin-top:56px}
+.toc a{color:var(--creme);text-decoration:none;font-size:15px;padding:9px 0;border-bottom:1px solid var(--line);display:flex;gap:12px}
+.toc a span{font-family:var(--display);color:var(--rosa);min-width:22px}
+.toc a:hover{color:var(--rosa)}
+.torn{display:block;width:100%;height:120px;margin-top:70px}
+
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.chip{font-size:14px;font-weight:500;padding:8px 16px;border-radius:999px;border:1px solid var(--line-l);background:#fff;color:var(--esp)}
+.chip.r{background:var(--rosa2);border-color:var(--rosa2);color:var(--rosa-ink)}
+.callout{background:var(--esp);color:var(--creme);border-radius:22px;padding:28px 30px;margin-top:24px}
+.callout p{color:#D6CCC4;max-width:none}
+.anat{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}
+@media(max-width:860px){.anat{grid-template-columns:1fr}}
+.anat ol{list-style:none;display:grid;gap:14px}
+.anat li{display:flex;gap:14px}
+.anat li b{font-family:var(--display);font-weight:500;color:var(--rosa-ink);font-size:20px;min-width:24px}
+
+.stage{border-radius:22px;display:flex;align-items:center;justify-content:center;padding:52px 44px;min-height:230px;border:1px solid var(--line)}
+.stage svg{width:100%;height:auto;max-width:360px}
+.stage.sm svg{max-width:120px}
+.st-esp{background:var(--esp)}.st-esp2{background:var(--esp2)}
+.st-creme{background:var(--creme);border-color:var(--line-l)}
+.st-rosa{background:var(--rosa);border-color:var(--rosa)}
+.st-white{background:#fff;border-color:var(--line-l)}
+.clear{position:relative;display:inline-flex;padding:46px;background:#fff;border:1px solid var(--line-l);border-radius:22px}
+.clear svg{width:240px;height:auto}
+.clear .ring{position:absolute;inset:22px;border:1.5px dashed var(--rosa-ink);border-radius:8px;opacity:.5}
+.minis{display:flex;align-items:flex-end;gap:28px;flex-wrap:wrap}
+.minis div{text-align:center}
+.seal{width:220px;height:220px}
+
+.sw{border-radius:22px;overflow:hidden;border:1px solid var(--line);background:var(--esp2)}
+.sw .chipc{height:130px;display:flex;align-items:flex-end;padding:14px 18px;font-family:var(--display);font-size:30px;font-weight:400}
+.sw .m{padding:14px 18px 18px}
+.sw .nm{font-family:var(--display);font-weight:500;font-size:18px}
+.sw dl{display:grid;grid-template-columns:48px 1fr;gap:2px 8px;font-size:13px;margin-top:8px;color:#D6CCC4}
+.sw dt{font-family:var(--display);font-weight:500;color:var(--taupe);font-size:11px;letter-spacing:.14em;padding-top:2px}
+.sw .role{font-size:13px;color:#D6CCC4;margin-top:10px;line-height:1.45;border-top:1px solid var(--line);padding-top:10px}
+.ratio{display:flex;height:58px;border-radius:14px;overflow:hidden;margin-top:28px;border:1px solid var(--line)}
+.ratio div{display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:12px;font-weight:500;letter-spacing:.08em}
+.pairs{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-top:20px}
+.pairs div{border-radius:14px;padding:16px;font-weight:600;font-size:15px}
+.pairs small{display:block;font-weight:500;font-size:12px;opacity:.8;margin-top:4px}
+
+.spec{background:#fff;border:1px solid var(--line-l);border-radius:22px;padding:32px;color:var(--esp)}
+.spec .big{font-size:80px;line-height:1}
+.spec .alpha{color:var(--cinza);font-size:17px;margin-top:16px;word-spacing:3px}
+.jo{font-family:var(--display)}.fi{font-family:var(--body)}.sc{font-family:var(--script)}
+.scale{margin-top:24px;border-top:1px solid var(--line-l)}
+.scale div{display:grid;grid-template-columns:160px 1fr;align-items:baseline;gap:20px;padding:18px 0;border-bottom:1px solid var(--line-l)}
+.scale span{font-family:var(--display);font-size:11px;font-weight:500;letter-spacing:.18em;color:var(--cinza);text-transform:uppercase}
+@media(max-width:700px){.scale div{grid-template-columns:1fr;gap:4px}}
+
+.polas{display:flex;gap:22px;flex-wrap:wrap;justify-content:center;padding:20px 0}
+.pola{background:#F7F2EC;padding:12px 12px 44px;border-radius:4px;width:210px;position:relative;box-shadow:0 18px 40px rgba(0,0,0,.35)}
+.pola div{height:210px;border-radius:2px;display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;font-family:var(--display);font-size:12px;letter-spacing:.18em;text-transform:uppercase}
+.pola .script{position:absolute;bottom:8px;left:14px;font-size:22px;color:var(--rosa-ink)}
+.pola:nth-child(1){transform:rotate(-4deg)}.pola:nth-child(2){transform:rotate(2deg) translateY(14px)}.pola:nth-child(3){transform:rotate(-1.5deg)}
+ul.list{list-style:none;display:grid;gap:10px;margin-top:10px}
+ul.list li{padding-left:22px;position:relative;color:#D6CCC4}
+.light ul.list li{color:var(--cinza)}
+ul.list li::before{content:"";position:absolute;left:0;top:.7em;width:10px;height:1.5px;background:var(--rosa)}
+.light ul.list li::before{background:var(--rosa-ink)}
+
+.demo{background:var(--esp2);border:1px solid var(--line);border-radius:22px;padding:30px;min-height:200px;display:flex;flex-direction:column;justify-content:space-between;gap:22px}
+.rule{display:flex;align-items:center;gap:16px;color:var(--rosa)}
+.rule::before,.rule::after{content:"";flex:1;height:1px;background:var(--line)}
+.rule span{font-family:var(--script);font-size:26px}
+.lvl{display:flex;align-items:center;gap:0}
+.lvl i{flex:1;height:1px;background:var(--line)}
+.lvl i.on{background:var(--rosa)}
+.lvl b{font-family:var(--display);font-weight:500;font-size:12px;letter-spacing:.14em;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);color:var(--taupe)}
+.lvl b.done{border-color:var(--rosa);color:var(--rosa)}
+.lvl b.now{background:var(--rosa);color:var(--esp);border-color:var(--rosa)}
+.icons{display:flex;gap:16px;flex-wrap:wrap}
+.icons div{width:62px;height:62px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center}
+.icons svg{width:28px;height:28px;stroke:var(--rosa);fill:none;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round}
+
+.btns{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.btn{font-family:var(--body);font-weight:500;font-size:15px;padding:14px 26px;border-radius:999px;border:1px solid transparent;cursor:pointer;display:inline-flex;align-items:center;gap:10px;transition:transform .2s ease,background .2s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn:focus-visible{outline:2px solid var(--rosa);outline-offset:3px}
+.b-rosa{background:var(--rosa);color:var(--esp)}.b-rosa:hover{background:#F0CBCF}
+.b-creme{background:var(--creme);color:var(--esp)}
+.b-out{background:transparent;color:var(--creme);border-color:rgba(243,235,227,.5)}
+.bdg{font-family:var(--display);font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;padding:7px 14px;border-radius:999px}
+.field{display:grid;gap:6px;margin-bottom:12px}
+.field label{font-size:13px;font-weight:500;color:var(--taupe)}
+.field input{font-family:var(--body);font-size:15px;padding:14px 18px;border-radius:14px;border:1px solid var(--line);background:var(--esp);color:var(--creme)}
+.field input::placeholder{color:#8E827B}
+.field input:focus{outline:none;border-color:var(--rosa)}
+.ccard{border-radius:22px;overflow:hidden;border:1px solid var(--line);background:var(--esp2);transition:transform .25s ease}
+.ccard:hover{transform:translateY(-4px)}
+.ccard .top{background:var(--rosa);color:var(--esp);padding:26px;min-height:160px;display:flex;flex-direction:column;justify-content:space-between}
+.ccard .top b{font-family:var(--display);font-weight:500;font-size:44px;line-height:1;text-transform:uppercase}
+.ccard .bot{padding:18px 24px}
+
+.quote{font-family:var(--display);font-weight:400;font-size:clamp(34px,4.4vw,54px);line-height:1;text-transform:uppercase;color:var(--esp)}
+.quote em{font-style:normal;color:var(--rosa-ink)}
+.say{display:grid;gap:10px;margin-top:10px}
+.say div{font-family:var(--display);font-size:19px;padding:14px 18px;border-radius:14px;background:#fff;border:1px solid var(--line-l);color:var(--esp)}
+.yn{border-radius:18px;padding:22px}
+.yn b{display:inline-block;font-family:var(--display);font-size:11px;letter-spacing:.2em;padding:5px 11px;border-radius:999px;margin-bottom:10px}
+.yes{background:#fff;border:1px solid var(--line-l)}.yes b{background:var(--rosa2);color:var(--rosa-ink)}
+.no{border:1px dashed var(--cinza)}.no b{background:var(--esp);color:var(--creme)}
+
+.ig-av{width:150px;height:150px;margin:0 auto}
+.reel{aspect-ratio:9/16;max-width:220px;margin:0 auto;border-radius:18px;background:var(--esp2);border:1px solid var(--line);padding:22px;display:flex;flex-direction:column;justify-content:space-between}
+.reel b{font-family:var(--display);font-weight:500;font-size:clamp(28px,3vw,42px);line-height:.92;text-transform:uppercase}
+.reel b em{font-style:normal;color:var(--rosa)}
+.feed{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;max-width:min(300px,100%);margin:0 auto}
+.grid > *{min-width:0}
+.feed div{aspect-ratio:1;display:flex;align-items:center;justify-content:center;text-align:center;padding:6px;font-family:var(--display);font-size:clamp(10px,1vw,13px);overflow:hidden;letter-spacing:.08em;text-transform:uppercase}
+.feed .s{font-family:var(--script);text-transform:none;letter-spacing:0;font-size:clamp(14px,1.5vw,20px)}
+.story{aspect-ratio:9/16;max-width:220px;margin:0 auto;border-radius:18px;background:var(--rosa);padding:22px;display:flex;flex-direction:column;justify-content:center;gap:14px;color:var(--esp)}
+.story b{font-family:var(--display);font-weight:500;font-size:30px;line-height:1;text-transform:uppercase}
+.story .box{background:var(--creme);border-radius:14px;padding:14px;font-size:13px;color:var(--cinza)}
+.hlc{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:40px}
+.hlc div{text-align:center;font-family:var(--display);font-size:12px;letter-spacing:.1em;color:var(--taupe)}
+.hlc span{width:68px;height:68px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 8px;background:var(--creme);border:1px solid var(--rosa-ink)}
+.hlc svg{width:28px;height:28px;fill:none;stroke:var(--rosa-ink);stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round}
+.cert{background:var(--creme);color:var(--esp);border-radius:22px;padding:32px 150px 32px 32px;position:relative;overflow:hidden;min-height:280px}
+.cert .lv{font-family:var(--display);font-weight:400;font-size:110px;line-height:.85;color:var(--esp)}
+.cert .sealmini{position:absolute;right:24px;bottom:24px;width:110px;height:110px}
+.cert p{color:var(--cinza)}
+.bcard{aspect-ratio:1.75;border-radius:14px;padding:22px;display:flex;flex-direction:column;justify-content:space-between}
+.wpp{background:var(--esp2);border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;gap:14px;align-items:center}
+.wpp svg{width:52px;height:52px;flex:none}
+
+.do{border-radius:18px;padding:20px 22px;background:#fff;border:1px solid var(--line-l)}
+.do b{display:inline-block;font-family:var(--display);font-size:11px;letter-spacing:.2em;padding:5px 11px;border-radius:999px;margin-bottom:8px}
+.do.y b{background:var(--rosa2);color:var(--rosa-ink)}
+.do.n{background:transparent;border:1px dashed var(--cinza)}.do.n b{background:var(--esp);color:var(--creme)}
+.files div{display:grid;grid-template-columns:80px 1fr;gap:14px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--line)}
+.files b{font-family:var(--display);font-weight:500;letter-spacing:.1em;color:var(--rosa-ink)}
+/* v4 · método */
+.princ{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line-l);border:1px solid var(--line-l);border-radius:22px;overflow:hidden;margin-top:22px}
+@media(max-width:860px){.princ{grid-template-columns:1fr}}
+.princ div{background:#fff;padding:24px 24px 26px;transition:background .25s ease}
+.princ div:hover{background:var(--rosa2)}
+.princ b{display:block;font-family:var(--display);font-weight:400;font-size:34px;line-height:1;color:var(--rosa-ink)}
+.princ h3{margin:12px 0 6px}
+.princ p{font-size:15px}
+.big-idea{font-family:var(--display);font-weight:500;font-size:clamp(30px,4vw,48px);line-height:1;text-transform:uppercase;color:var(--creme)}
+.big-idea em{font-style:normal;color:var(--rosa)}
+.skills{display:grid;gap:12px}
+.skills .row{display:grid;grid-template-columns:118px 1fr 34px;gap:12px;align-items:center}
+.skills .nm{font-family:var(--display);font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--taupe)}
+.skills .bar{display:grid;grid-template-columns:repeat(5,1fr);gap:4px}
+.skills .bar i{height:8px;border-radius:99px;background:rgba(243,235,227,.1)}
+.skills .bar i.on{background:var(--rosa)}
+.skills .lv{font-family:var(--display);font-size:12px;font-weight:500;color:var(--rosa);text-align:right}
+.cycle{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.cycle span{font-family:var(--display);font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;padding:9px 14px;border-radius:999px;border:1px solid var(--line);color:var(--creme)}
+.cycle span.on{background:var(--rosa);border-color:var(--rosa);color:var(--esp)}
+.cycle i{font-style:normal;color:var(--rosa);font-size:14px}
+.portal{display:grid;grid-template-columns:1.1fr .9fr;gap:14px}
+@media(max-width:860px){.portal{grid-template-columns:1fr}}
+.pcard{background:var(--esp);border:1px solid var(--line);border-radius:18px;padding:18px 20px}
+.pcard .label{margin:0 0 8px}
+.pcard b{font-family:var(--display);font-weight:500;font-size:20px;display:block;line-height:1.2}
+.pcard small{display:block;color:var(--taupe);font-size:13px;margin-top:4px}
+.prog{height:4px;border-radius:4px;background:rgba(243,235,227,.1);margin-top:12px;overflow:hidden}.prog i{display:block;height:100%;background:var(--rosa)}
+.states{display:grid;gap:8px}
+.states div{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 14px;border-radius:14px;border:1px solid var(--line);font-size:14px;color:#D6CCC4}
+.states div b{font-family:var(--display);font-weight:500;font-size:14px;color:var(--creme)}
+.rep{background:var(--creme);color:var(--esp);border-radius:22px;padding:32px 150px 32px 32px;position:relative;overflow:hidden;min-height:280px}
+.rep h4{font-family:var(--display);font-weight:400;font-size:44px;line-height:.95;text-transform:uppercase;margin:4px 0 18px}
+.rep table{border-collapse:collapse;width:100%;max-width:340px;font-size:14px}
+.rep td{padding:7px 0;border-bottom:1px solid var(--line-l);color:var(--cinza)}
+.rep td.k{font-family:var(--display);font-weight:500;letter-spacing:.1em;text-transform:uppercase;font-size:11px;color:var(--esp)}
+.rep td.v{text-align:right;font-family:var(--display);font-weight:500;color:var(--rosa-ink)}
+.rep .sealmini{position:absolute;right:24px;bottom:24px;width:110px;height:110px}
+@media(max-width:600px){.rep{padding:28px 24px 150px}}
+.dos{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+footer{padding:50px 0;border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+footer svg{width:220px;height:auto}
+footer p{font-size:13px;color:var(--taupe)}
+
+/* ===== v5 · identidade clara ===== */
+body{background:var(--linho);color:var(--esp)}
+section{border-top:1px solid var(--line-l)}
+section.light{background:var(--creme)}
+section.dark{background:var(--esp);color:var(--creme);border-top:none}
+p{color:var(--cinza)}
+.dark p{color:#D6CCC4}
+.eyebrow{color:var(--rosa-ink)} .dark .eyebrow{color:var(--rosa)}
+h1,h2{font-weight:500}
+h1 em,h2 em{color:var(--rosa-ink)} .dark h2 em{color:var(--rosa)}
+.lead{color:var(--esp)} .dark .lead{color:var(--creme)}
+.script{color:var(--rosa-ink)} .dark .script,.hero-side .script,.callout .script{color:var(--rosa)}
+.card{background:#fff;border-color:var(--line-l)}
+.dark .card{background:var(--esp2);border-color:var(--line)}
+.label{color:var(--cinza)} .dark .label{color:var(--taupe)}
+ul.list li{color:var(--cinza)} ul.list li::before{background:var(--rosa-ink)}
+.dark ul.list li{color:#D6CCC4} .dark ul.list li::before{background:var(--rosa)}
+.nav .pill,.hero .kicker{color:var(--cinza)}
+.hero-side{background:var(--esp);border:none}
+.toc a{color:var(--esp);border-bottom-color:var(--line-l)} .toc a span{color:var(--rosa-ink)} .toc a:hover{color:var(--rosa-ink)}
+.stage{border-color:var(--line-l)}
+.sw{background:#fff;border-color:var(--line-l)}
+.sw dl,.sw .role{color:var(--cinza)} .sw dt{color:var(--cinza)} .sw .role{border-top-color:var(--line-l)}
+.sw .chipc{border-bottom:1px solid var(--line-l)}
+.ratio{border-color:var(--line-l)}
+.demo{background:#fff;border-color:var(--line-l)}
+.rule{color:var(--rosa-ink)} .rule::before,.rule::after{background:var(--line-l)}
+.icons div{border-color:var(--line-l)} .icons svg{stroke:var(--rosa-ink)}
+.skills .nm{color:var(--cinza)} .skills .bar i{background:rgba(28,24,23,.08)} .skills .bar i.on{background:var(--rosa-ink)} .skills .lv{color:var(--rosa-ink)}
+.cycle span{border-color:var(--line-l);color:var(--esp)} .cycle span.on{background:var(--esp);border-color:var(--esp);color:var(--creme)} .cycle i{color:var(--rosa-ink)}
+.b-rosa{background:var(--rosa);color:var(--esp)} .b-creme{background:var(--esp);color:var(--creme)}
+.b-out{color:var(--esp);border-color:rgba(28,24,23,.35)}
+.btn:focus-visible{outline-color:var(--rosa-ink)}
+.field label{color:var(--cinza)}
+.field input{background:var(--linho);border-color:var(--line-l);color:var(--esp)}
+.field input::placeholder{color:#9A8F88} .field input:focus{border-color:var(--rosa-ink)}
+.ccard{background:#fff;border-color:var(--line-l)}
+.pcard{background:var(--linho);border-color:var(--line-l)} .pcard small{color:var(--cinza)}
+.prog{background:rgba(28,24,23,.08)} .prog i{background:var(--rosa-ink)}
+.states div{border-color:var(--line-l);color:var(--cinza)} .states div b{color:var(--esp)}
+.hlc div{color:var(--cinza)}
+.rep{background:#fff;border:1px solid var(--line-l)}
+.files div{border-bottom-color:var(--line)}
+footer{background:var(--esp);border-top:none}
+.dark .pola .script{color:var(--rosa-ink)}
+.big-idea{color:var(--creme)} .big-idea em{color:var(--rosa)}
+/* antes x depois */
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:40px}
+@media(max-width:860px){.vs{grid-template-columns:1fr}}
+.vs .col{border-radius:22px;padding:22px;border:1px solid var(--line-l);background:#fff}
+.vs .col > .label{margin:0 0 14px}
+.vs .row{display:grid;grid-template-columns:1fr .62fr;gap:12px}
+.mini{aspect-ratio:4/5;border-radius:14px;padding:18px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;position:relative}
+.mini.st{aspect-ratio:9/16}
+.mini .t{font-family:var(--display);font-size:clamp(20px,2.4vw,30px);line-height:.95;text-transform:uppercase}
+.mini .t em{font-style:normal}
+.mini .s{font-family:var(--body);font-size:12px;line-height:1.35}
+.mini .k{font-family:var(--display);font-size:9px;font-weight:500;letter-spacing:.22em;text-transform:uppercase}
+.mini .pill{align-self:flex-start;font-size:11px;font-weight:500;padding:7px 12px;border-radius:999px}
+.mini .tear{position:absolute;left:0;right:0;bottom:0;height:46px}
+.chg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:22px}
+@media(max-width:860px){.chg{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.chg{grid-template-columns:1fr}}
+.chg div{border-top:2px solid var(--rosa-ink);padding-top:12px}
+.chg b{font-family:var(--display);font-weight:500;font-size:15px;text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:4px}
+.chg p{font-size:14.5px}
+.sib{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:24px}
+@media(max-width:860px){.sib{grid-template-columns:1fr}}
+.sib > div{border-radius:22px;padding:24px;display:flex;flex-direction:column;gap:14px}
+.sib .dots{display:flex;gap:8px}
+.sib .dots i{width:34px;height:34px;border-radius:50%;border:1px solid rgba(0,0,0,.08)}
+.sib h3{margin:0}
+.sib p{font-size:14.5px}
+</style>
+</head>
+<body>
+
+<header class="hero"><div class="wrap">
+  <div class="nav"><svg class="lock" viewBox="-2 -6 660 108" role="img" aria-label="KLANG, o som da língua"><path d="M4 4V96M4 60L58 4M24 40L62 96M84 4V92H130M146 96L190 8L234 96M254 96V4L316 96V4M425.7 23.6A46 46 0 1 0 434 50H394" fill="none" stroke="#1C1817" stroke-width="8" stroke-linejoin="miter" stroke-miterlimit="10"/><text x="500" y="22" fill="#9A4E5C" font-family="Jost, Futura, sans-serif" font-size="19" font-weight="500" letter-spacing="7">O SOM</text><text x="500" y="56" fill="#9A4E5C" font-family="Jost, Futura, sans-serif" font-size="19" font-weight="500" letter-spacing="7">DA</text><text x="500" y="90" fill="#9A4E5C" font-family="Jost, Futura, sans-serif" font-size="19" font-weight="500" letter-spacing="7">LÍNGUA</text></svg><span class="pill">Manual de marca · v5.0 · proposta clara</span></div>
+  <div class="hero-grid">
+    <div>
+      <div class="kicker">Inglês para uma vida real</div>
+      <h1>O som da<br><em>língua.</em></h1>
+      <p class="lead" style="margin-top:28px">Este documento reúne a identidade completa da KLANG: conceito, filosofia, logo, monograma, cores, tipografia, imagem, elementos gráficos, componentes, tom de voz e aplicações. Tudo o que mantém a marca coerente onde quer que ela apareça. Esta é a versão 5: a mesma marca, agora com luz. O linho vira o fundo, o espresso vira tinta e o rosa continua sendo o detalhe que assina.</p>
+    </div>
+    <div class="hero-side"><span class="glow"></span><div class="script">English<br>for real life</div></div>
+  </div>
+  <nav class="toc" aria-label="Sumário">
+    <a href="#s0"><span>00</span>O que mudou na v5</a><a href="#s1"><span>01</span>Conceito da marca</a><a href="#s2"><span>02</span>Logo principal</a><a href="#s3"><span>03</span>Versões e reduções</a><a href="#s4"><span>04</span>Monograma e selo</a>
+    <a href="#s5"><span>05</span>Paleta de cores</a><a href="#s6"><span>06</span>Tipografia</a><a href="#s7"><span>07</span>Estilo de imagem</a><a href="#s8"><span>08</span>Elementos gráficos</a>
+    <a href="#s9"><span>09</span>Botões e componentes</a><a href="#s10"><span>10</span>Tom de voz</a><a href="#s11"><span>11</span>Aplicações</a><a href="#s12"><span>12</span>Usos corretos e incorretos</a><a href="#s13"><span>13</span>Arquivos finais</a>
+  </nav>
+</div>
+<svg class="torn" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40 L60 52 L110 38 L170 60 L230 48 L300 70 L360 58 L420 80 L500 66 L560 88 L640 74 L700 92 L780 80 L860 98 L940 86 L1010 104 L1090 92 L1170 108 L1250 96 L1330 112 L1440 100 L1440 120 L0 120Z" fill="#E8BCC1"/></svg>
+</header>
+
+<section id="s0"><div class="wrap">
+  <div class="eyebrow">00 · O que mudou na v5</div>
+  <h2>A mesma marca, <em>com luz</em></h2>
+  <p class="lead">A v4 vivia no escuro: 58% de espresso, tudo baixo e noturno. Era elegante, mas brigava com o que a KLANG promete (leveza, vida real, aconchego) e pesava no feed. A v5 inverte a proporção sem trocar nenhuma cor da família: o fundo fica claro, o espresso desce para a tinta e para blocos de contraste, e o título ganha peso.</p>
+  <div class="vs">
+    <div class="col"><div class="label">Antes · v4 escura</div><div class="row"><div class="mini" style="background:#1C1817;color:#F3EBE3;"><span class="k" style="color:#E8BCC1">Vida real</span><div class="t">Inglês de livro<br>× inglês <em style="color:#E8BCC1">real</em></div><span class="s" style="color:#F3EBE3;opacity:.8"></span><svg class="tear" viewBox="0 0 400 46" preserveAspectRatio="none" aria-hidden="true"><path d="M0 18 L50 24 L100 14 L160 28 L220 20 L280 34 L340 24 L400 32 L400 46 L0 46Z" fill="#E8BCC1"/></svg></div><div class="mini st" style="background:#262120;color:#F3EBE3"><span class="k" style="color:#E8BCC1">Soa assim · EP 03</span><div class="t">Com<em style="color:#E8BCC1">fort</em><br>able</div><span class="s" style="font-family:var(--script);color:#E8BCC1;font-size:18px">say it with me</span></div></div></div>
+    <div class="col" style="border-color:#9A4E5C"><div class="label" style="color:#9A4E5C">Agora · v5 clara</div><div class="row"><div class="mini" style="background:#F7F2EB;color:#1C1817;border:1px solid #DCCFC2"><span class="k" style="color:#9A4E5C">Vida real</span><div class="t">Inglês de livro<br>× inglês <em style="color:#9A4E5C">real</em></div><span class="s" style="color:#1C1817;opacity:.8"></span><svg class="tear" viewBox="0 0 400 46" preserveAspectRatio="none" aria-hidden="true"><path d="M0 18 L50 24 L100 14 L160 28 L220 20 L280 34 L340 24 L400 32 L400 46 L0 46Z" fill="#E8BCC1"/></svg></div><div class="mini st" style="background:#E8BCC1;color:#1C1817"><span class="k" style="color:#1C1817">Soa assim · EP 03</span><div class="t" style="font-weight:500">Com<em style="color:#9A4E5C">fort</em><br>able</div><span class="s" style="font-family:var(--script);color:#9A4E5C;font-size:18px">say it with me</span></div></div></div>
+  </div>
+  <div class="chg">
+    <div><b>Fundo</b><p>Linho #F7F2EB como padrão. Creme para a seção alternada e para respirar.</p></div>
+    <div><b>Espresso</b><p>Deixa de ser fundo e vira tinta: títulos, texto e blocos de contraste (no máximo um por tela).</p></div>
+    <div><b>Rosa</b><p>Rosa pó continua acento e fundo de peças de destaque. Como texto sobre claro, sempre rosa fundo #9A4E5C.</p></div>
+    <div><b>Peso</b><p>Títulos em Jost 500 (antes 400). Mais presença sem precisar de fundo escuro.</p></div>
+  </div>
+  <h3 class="mt">Irmã do MIND, não gêmea</h3>
+  <p>As duas marcas são suas, falam de inglês e dividem Jost, letra à mão e selo. Por isso a separação acontece na cor. A regra é simples: a KLANG nunca usa vinho, e o MIND nunca usa marrom.</p>
+  <div class="sib">
+    <div style="background:#fff;border:1px solid #DCCFC2"><div class="dots"><i style="background:#F7F2EB"></i><i style="background:#1C1817"></i><i style="background:#E8BCC1"></i><i style="background:#9A4E5C"></i></div><h3>KLANG · escola</h3><p>Linho neutro, tinta marrom espresso, rosa pó pastel. O contraste forte vem dos blocos espresso. Clima de mesa de estudo à luz de abajur: quente, próximo, falado.</p></div>
+    <div style="background:#F4E4DA;border:1px solid #E6CFC3"><div class="dots"><i style="background:#F4E4DA"></i><i style="background:#3A1219"></i><i style="background:#E8B4BC"></i><i style="background:#8C2338"></i></div><h3 style="color:#3A1219">MIND · livro</h3><p style="color:#6B2A35">Blush rosado, tinta vinho escuro, bordô saturado. O contraste forte vem dos blocos bordô. Clima de livro: profundo, lido, escrito.</p></div>
+  </div>
+</div></section>
+
+<section id="s1" class="light"><div class="wrap">
+  <div class="eyebrow">01 · Conceito da marca</div>
+  <h2>A essência <em>antes do visual</em></h2>
+  <p class="lead">KLANG significa <strong>som</strong> em alemão, e o nome vem da vivência da Mayra fora do Brasil. O bordão diz isso em voz alta: <strong>KLANG, o som da língua.</strong> Mas a marca não fala de idioma como matéria: fala de vida. Inglês para conversar, viajar, trabalhar e pertencer a lugares novos sem deixar de ser quem você é. E por trás de tudo isso, uma ideia central que decide cada peça, cada frase e cada tela da marca.</p>
+  <div class="grid c2 mt">
+    <div class="card"><h3>O que a KLANG é</h3><p>Escola de inglês com aulas particulares, ao vivo e online: uma professora e uma aluna, do A1 ao C1. Sem turma, sem aula gravada, sem apostila igual para todo mundo. Cada aluna recebe um percurso montado a partir do que já sabe, de onde trava e do que quer fazer com o inglês.</p></div>
+    <div class="card"><h3>Para quem</h3><p>Adultos que entendem mas travam na hora de falar, quem começa do zero e quer direção, e quem precisa do inglês para trabalho, viagem ou para se preparar como au pair.</p></div>
+  </div>
+  <div class="card mt2"><h3>Sensação que a marca transmite</h3>
+    <div class="chips"><span class="chip r">Aconchego</span><span class="chip">Confiança</span><span class="chip">Mundo</span><span class="chip r">Pertencimento</span><span class="chip">Elegância</span><span class="chip">Vida real</span><span class="chip r">Leveza</span><span class="chip">Cuidado</span><span class="chip r">Evidência</span></div></div>
+  <div class="callout"><div class="label" style="margin:0 0 14px;color:#E8BCC1">A ideia central</div><div class="big-idea">A KLANG não ensina um nível.<br><em>Ensina uma pessoa.</em></div><p style="margin-top:18px">O teste por habilidade, o plano individual, o Prepare, a aula ao vivo, o Workbook, o retrieval, os Checkpoints e o portal saem dessa ideia. A marca também: ela nunca rotula a aluna, sempre mostra o caminho.</p></div>
+  <h3 class="mt">Os seis princípios</h3>
+  <p>Valem para o método e para a comunicação. Se uma peça contradiz um deles, a peça está errada.</p>
+  <div class="princ">
+    <div><b>01</b><h3>O nível não é identidade</h3><p>Ninguém "é B1". Uma aluna pode estar em B2 em Listening, A2 em Writing e A1 em Speaking. O CEFR é mapa, não rótulo.</p></div>
+    <div><b>02</b><h3>Evidência vale mais que impressão</h3><p>Toda evolução aponta para algo concreto: uma resposta, uma fala, um texto, um Checkpoint. Cada habilidade é comparada consigo mesma.</p></div>
+    <div><b>03</b><h3>Aprender é um ciclo</h3><p>Prepare, aula, Workbook, feedback, retrieval e progresso formam a espinha dorsal. Não é aula, dever, aula, dever.</p></div>
+    <div><b>04</b><h3>Erro não é punição, é dado</h3><p>"Did you saw?" é registrado, explicado, trazido de volta na revisão e observado até a forma certa aparecer sozinha.</p></div>
+    <div><b>05</b><h3>Personalizar é mudar o percurso</h3><p>Não é colocar o nome da aluna no PDF. Duas alunas A2 não recebem a mesma apostila, as mesmas aulas nem a mesma sequência.</p></div>
+    <div><b>06</b><h3>A professora decide</h3><p>A tecnologia fica nos bastidores: a IA analisa e propõe, nunca decreta sozinha um nível. Toda decisão pedagógica passa pela professora.</p></div>
+  </div>
+  <div class="anat mt">
+    <div class="stage st-white" style="padding:60px 40px"><svg class="wm" viewBox="-2 -6 446 108" role="img" aria-label="KLANG"><path d="M4 4V96M4 60L58 4M24 40L62 96M84 4V92H130M146 96L190 8L234 96M254 96V4L316 96V4M425.7 23.6A46 46 0 1 0 434 50H394" fill="none" stroke="#1C1817" stroke-width="8" stroke-linejoin="miter" stroke-miterlimit="10"/></svg></div>
+    <ol>
+      <li><b>1</b><p><strong>Letras finas e abertas</strong>, geométricas, com muito respiro entre elas: a marca fala baixo e com segurança.</p></li>
+      <li><b>2</b><p><strong>O A sem a barra do meio (Λ)</strong> é o detalhe proprietário. É uma letra sem trava, exatamente o que a KLANG promete: falar sem travar.</p></li>
+      <li><b>3</b><p><strong>O bordão "o som da língua"</strong> acompanha o logo e traduz o nome: Klang é som em alemão, e a KLANG é onde o inglês ganha som, na sua voz.</p></li>
+    </ol>
+  </div>
+</div></section>
+
+<section id="s2"><div class="wrap">
+  <div class="eyebrow">02 · Logo principal</div>
+  <h2>A assinatura <em>da marca</em></h2>
+  <p class="lead">Wordmark monolinha em caixa alta com o Λ proprietário, acompanhado do bordão da marca: <strong>KLANG, o som da língua.</strong> Na v5, a versão principal é <strong>espresso sobre linho</strong>; a versão creme fica para os blocos escuros e para fotos. A versão com o bordão "o som da língua" entra em site, capas e apresentações; o wordmark sozinho vai em todo o resto.</p>
+  <div class="grid c2 mt">
+    <div><div class="stage st-esp2"><svg class="lock" viewBox="-2 -6 660 108" role="img" aria-label="KLANG, o som da língua"><path d="M4 4V96M4 60L58 4M24 40L62 96M84 4V92H130M146 96L190 8L234 96M254 96V4L316 96V4M425.7 23.6A46 46 0 1 0 434 50H394" fill="none" stroke="#F3EBE3" stroke-width="8" stroke-linejoin="miter" stroke-miterlimit="10"/><text x="500" y="22" fill="#E8BCC1" font-family="Jost, Futura, sans-serif" font-size="19" font-weight="500" letter-spacing="7">O SOM</text><text x="500" y="56" fill="#E8BCC1" font-family="Jost, Futura, sans-serif" font-size="19" font-weight="500" letter-spacing="7">DA</text><text x="500" y="90" fill="#E8BCC1" font-family="Jost, Futura, sans-serif" font-size="19" font-weight="500" letter-spacing="7">LÍNGUA</text></svg></div><div class="label">Com bordão · bloco espresso</div></div>
+    <div><div class="stage st-creme"><svg class="lock" viewBox="-2 -6 660 108" role="img" aria-label="KLANG, o som da língua"><path d="M4 4V96M4 60L58 4M24 40L62 96M84 4V92H130M146 96L190 8L234 96M254 96V4L316 96V4M425.7 23.6A46 46 0 1 0 434 50H394" fill="none" stroke="#1C1817" stroke-width="8" stroke-linejoin="miter" stroke-miterlimit="10"/><text x="500" y="22" fill="#9A4E5C" font-family="Jost, Futura, sans-serif" font-size="19" font-weight="500" letter-spacing="7">O SOM</text><text x="500" y="56" fill="#9A4E5C" font-family="Jost, Futura, sans-serif" font-size="19" font-weight="500" letter-spacing="7">DA</text><text x="500" y="90" fill="#9A4E5C" font-family="Jost, Futura, sans-serif" font-size="19" font-weight="500" letter-spacing="7">LÍNGUA</text></svg></div><div class="label">Com bordão · principal (linho e creme)</div></div>
+    <div><div class="stage st-esp2"><svg class="wm" viewBox="-2 -6 446 108" role="img" aria-label="KLANG"><path d="M4 4V96M4 60L58 4M24 40L62 96M84 4V92H130M146 96L190 8L234 96M254 96V4L316 96V4M425.7 23.6A46 46 0 1 0 434 50H394" fill="none" stroke="#F3EBE3" stroke-width="8" stroke-linejoin="miter" stroke-miterlimit="10"/></svg></div><div class="label">Wordmark · fundo espresso</div></div>
+    <div><div class="stage st-rosa"><svg class="wm" viewBox="-2 -6 446 108" role="img" aria-label="KLANG"><path d="M4 4V96M4 60L58 4M24 40L62 96M84 4V92H130M146 96L190 8L234 96M254 96V4L316 96V4M425.7 23.6A46 46 0 1 0 434 50H394" fill="none" stroke="#1C1817" stroke-width="8" stroke-linejoin="miter" stroke-miterlimit="10"/></svg></div><div class="label">Wordmark · fundo rosa</div></div>
+  </div>
+  <div class="grid c2 mt" style="align-items:center">
+    <div><div class="clear"><span class="ring"></span><svg class="wm" viewBox="-2 -6 446 108" role="img" aria-label="KLANG"><path d="M4 4V96M4 60L58 4M24 40L62 96M84 4V92H130M146 96L190 8L234 96M254 96V4L316 96V4M425.7 23.6A46 46 0 1 0 434 50H394" fill="none" stroke="#1C1817" stroke-width="8" stroke-linejoin="miter" stroke-miterlimit="10"/></svg></div><div class="label">Área de respiro = altura do K ÷ 2</div></div>
+    <div><h3>Tamanho mínimo</h3><p>Wordmark: 90 px de largura no digital, 22 mm no impresso. Com bordão: 180 px. Abaixo disso, use o monograma.</p>
+      <div class="minis mt2"><div><div style="width:220px"><svg class="wm" viewBox="-2 -6 446 108" role="img" aria-label="KLANG"><path d="M4 4V96M4 60L58 4M24 40L62 96M84 4V92H130M146 96L190 8L234 96M254 96V4L316 96V4M425.7 23.6A46 46 0 1 0 434 50H394" fill="none" stroke="#1C1817" stroke-width="8" stroke-linejoin="miter" stroke-miterlimit="10"/></svg></div><div class="label">220 px</div></div><div><div style="width:90px"><svg class="wm" viewBox="-2 -6 446 108" role="img" aria-label="KLANG"><path d="M4 4V96M4 60L58 4M24 40L62 96M84 4V92H130M146 96L190 8L234 96M254 96V4L316 96V4M425.7 23.6A46 46 0 1 0 434 50H394" fill="none" stroke="#1C1817" stroke-width="8" stroke-linejoin="miter" stroke-miterlimit="10"/></svg></div><div class="label">90 px</div></div><div><div style="width:34px"><svg class="mono" viewBox="0 0 100 100" role="img" aria-label="Monograma KLANG"><circle cx="50" cy="50" r="50" fill="#E8BCC1"/><path d="M36 22V78M36 53L64 22M47 44L66 78" fill="none" stroke="#1C1817" stroke-width="5"/></svg></div><div class="label">34 px</div></div></div></div>
+  </div>
+</div></section>
+
+<section id="s3"><div class="wrap">
+  <div class="eyebrow">03 · Versões e reduções</div>
+  <h2>Quando a principal <em>não cabe</em></h2>
+  <p class="lead">O wordmark só existe em três cores: espresso (principal), creme (sobre bloco escuro ou foto) e rosa. Nunca em degradê, nunca com contorno.</p>
+  <div class="grid c3 mt">
+    <div><div class="stage st-esp"><svg class="wm" viewBox="-2 -6 446 108" role="img" aria-label="KLANG"><path d="M4 4V96M4 60L58 4M24 40L62 96M84 4V92H130M146 96L190 8L234 96M254 96V4L316 96V4M425.7 23.6A46 46 0 1 0 434 50H394" fill="none" stroke="#E8BCC1" stroke-width="8" stroke-linejoin="miter" stroke-miterlimit="10"/></svg></div><div class="label">Rosa sobre espresso · peças de destaque</div></div>
+    <div><div class="stage st-white"><svg class="wm" viewBox="-2 -6 446 108" role="img" aria-label="KLANG"><path d="M4 4V96M4 60L58 4M24 40L62 96M84 4V92H130M146 96L190 8L234 96M254 96V4L316 96V4M425.7 23.6A46 46 0 1 0 434 50H394" fill="none" stroke="#1C1817" stroke-width="8" stroke-linejoin="miter" stroke-miterlimit="10"/></svg></div><div class="label">Mono escuro · impressão em uma cor</div></div>
+    <div><div class="stage st-esp2"><svg class="wm" viewBox="-2 -6 446 108" role="img" aria-label="KLANG"><path d="M4 4V96M4 60L58 4M24 40L62 96M84 4V92H130M146 96L190 8L234 96M254 96V4L316 96V4M425.7 23.6A46 46 0 1 0 434 50H394" fill="none" stroke="#F3EBE3" stroke-width="8" stroke-linejoin="miter" stroke-miterlimit="10"/></svg></div><div class="label">Mono claro · sobre foto escura</div></div>
+  </div>
+</div></section>
+
+<section id="s4"><div class="wrap">
+  <div class="eyebrow">04 · Monograma e selo</div>
+  <h2>Ícone, carimbo, <em>assinatura</em></h2>
+  <p class="lead">O <strong>monograma K</strong> é a marca reduzida a uma letra: avatar, favicon e detalhes. O <strong>selo circular</strong> traz o K e a assinatura em texto circular, para o progress report, relatórios de habilidade e marca d'água das apostilas.</p>
+  <div class="grid c4 mt">
+    <div><div class="stage sm st-esp2"><svg class="mono" viewBox="0 0 100 100" role="img" aria-label="Monograma KLANG"><circle cx="50" cy="50" r="50" fill="#E8BCC1"/><path d="M36 22V78M36 53L64 22M47 44L66 78" fill="none" stroke="#1C1817" stroke-width="5"/></svg></div><div class="label">Monograma rosa</div></div>
+    <div><div class="stage sm st-esp2"><svg class="mono" viewBox="0 0 100 100" role="img" aria-label="Monograma KLANG"><circle cx="50" cy="50" r="50" fill="#1C1817"/><circle cx="50" cy="50" r="46" fill="none" stroke="#E8BCC1" stroke-width="1.5"/><path d="M36 22V78M36 53L64 22M47 44L66 78" fill="none" stroke="#F3EBE3" stroke-width="5"/></svg></div><div class="label">Monograma escuro</div></div>
+    <div><div class="stage sm st-rosa"><svg class="mono" viewBox="0 0 100 100" role="img" aria-label="Monograma KLANG"><circle cx="50" cy="50" r="50" fill="#F3EBE3"/><path d="M36 22V78M36 53L64 22M47 44L66 78" fill="none" stroke="#1C1817" stroke-width="5"/></svg></div><div class="label">Monograma creme</div></div>
+    <div><div class="stage st-esp2" style="padding:24px"><svg class="seal" viewBox="0 0 200 200" role="img" aria-label="Selo KLANG"><circle cx="100" cy="100" r="98" fill="#E8BCC1"/><circle cx="100" cy="100" r="62" fill="none" stroke="#1C1817" stroke-opacity=".5"/><defs><path id="cE8BCC1" d="M100 100m-80 0a80 80 0 1 1 160 0a80 80 0 1 1 -160 0"/></defs><text fill="#1C1817" font-family="Jost, Futura, sans-serif" font-size="11" font-weight="500" letter-spacing="4.2"><textPath href="#cE8BCC1">KLANG · O SOM DA LÍNGUA · INGLÊS A1 AO C1 · </textPath></text><g transform="translate(50 50)"><path d="M36 22V78M36 53L64 22M47 44L66 78" fill="none" stroke="#1C1817" stroke-width="5"/></g></svg></div><div class="label">Selo · relatórios e progress report</div></div>
+  </div>
+</div></section>
+
+<section id="s5"><div class="wrap">
+  <div class="eyebrow">05 · Paleta de cores</div>
+  <h2>Linho, espresso e <em>um rosa de pó</em></h2>
+  <p class="lead">Cores quentes, agora com luz de manhã: um linho neutro de base, o espresso como tinta e o rosa pastel e empoeirado como assinatura. O rosa nunca é vibrante ou fluorescente: ele entra no CTA, no destaque da palavra e nos detalhes escritos à mão. Valores CMYK são conversão de referência; calibre pelo perfil da gráfica.</p>
+  <div class="grid c3 mt">
+    <div class="sw"><div class="chipc" style="background:#F7F2EB;color:#1C1817">Aa</div><div class="m"><div class="nm">Linho <span style="font-size:11px;color:#9A4E5C;letter-spacing:.14em">NOVA</span></div><dl><dt>HEX</dt><dd>#F7F2EB</dd><dt>RGB</dt><dd>247, 242, 235</dd><dt>CMYK</dt><dd>0, 2, 5, 3</dd></dl><div class="role">Fundo principal. Neutro e quente, sem puxar para o rosa (isso é do MIND).</div></div></div>
+    <div class="sw"><div class="chipc" style="background:#1C1817;color:#F3EBE3">Aa</div><div class="m"><div class="nm">Espresso</div><dl><dt>HEX</dt><dd>#1C1817</dd><dt>RGB</dt><dd>28, 24, 23</dd><dt>CMYK</dt><dd>0, 14, 18, 89</dd></dl><div class="role">Tinta de títulos e texto, e blocos de contraste. Nunca preto puro.</div></div></div>
+    <div class="sw"><div class="chipc" style="background:#262120;color:#F3EBE3">Aa</div><div class="m"><div class="nm">Espresso claro</div><dl><dt>HEX</dt><dd>#262120</dd><dt>RGB</dt><dd>38, 33, 32</dd><dt>CMYK</dt><dd>0, 13, 16, 85</dd></dl><div class="role">Cards e campos dentro de um bloco espresso.</div></div></div>
+    <div class="sw"><div class="chipc" style="background:#F3EBE3;color:#1C1817">Aa</div><div class="m"><div class="nm">Creme</div><dl><dt>HEX</dt><dd>#F3EBE3</dd><dt>RGB</dt><dd>243, 235, 227</dd><dt>CMYK</dt><dd>0, 3, 7, 5</dd></dl><div class="role">Seção alternada, cards e texto sobre bloco escuro.</div></div></div>
+    <div class="sw"><div class="chipc" style="background:#E8BCC1;color:#1C1817">Aa</div><div class="m"><div class="nm">Rosa pó</div><dl><dt>HEX</dt><dd>#E8BCC1</dd><dt>RGB</dt><dd>232, 188, 193</dd><dt>CMYK</dt><dd>0, 19, 17, 9</dd></dl><div class="role">Cor-assinatura. CTA principal, fundo de peças de destaque, papel rasgado.</div></div></div>
+    <div class="sw"><div class="chipc" style="background:#F6DCDF;color:#9A4E5C">Aa</div><div class="m"><div class="nm">Rosa claro</div><dl><dt>HEX</dt><dd>#F6DCDF</dd><dt>RGB</dt><dd>246, 220, 223</dd><dt>CMYK</dt><dd>0, 11, 9, 4</dd></dl><div class="role">Tags e fundos suaves nas seções claras.</div></div></div>
+    <div class="sw"><div class="chipc" style="background:#9A4E5C;color:#F3EBE3">Aa</div><div class="m"><div class="nm">Rosa fundo</div><dl><dt>HEX</dt><dd>#9A4E5C</dd><dt>RGB</dt><dd>154, 78, 92</dd><dt>CMYK</dt><dd>0, 49, 40, 40</dd></dl><div class="role">O rosa como texto sobre linho e creme: palavra em destaque, label, letra à mão.</div></div></div>
+    <div class="sw"><div class="chipc" style="background:#B9ADA6;color:#1C1817">Aa</div><div class="m"><div class="nm">Taupe</div><dl><dt>HEX</dt><dd>#B9ADA6</dd><dt>RGB</dt><dd>185, 173, 166</dd><dt>CMYK</dt><dd>0, 6, 10, 27</dd></dl><div class="role">Texto secundário só dentro de blocos espresso.</div></div></div>
+    <div class="sw"><div class="chipc" style="background:#6E625C;color:#F3EBE3">Aa</div><div class="m"><div class="nm">Cinza quente</div><dl><dt>HEX</dt><dd>#6E625C</dd><dt>RGB</dt><dd>110, 98, 92</dd><dt>CMYK</dt><dd>0, 11, 16, 57</dd></dl><div class="role">Texto secundário e labels sobre linho e creme.</div></div></div>
+  </div>
+  <div class="ratio"><div style="flex:45;background:#F7F2EB;color:#6E625C">45% linho</div><div style="flex:15;background:#F3EBE3;color:#6E625C;border-left:1px solid #DCCFC2">15% creme</div><div style="flex:24;background:#1C1817;color:#B9ADA6">24% espresso</div><div style="flex:12;background:#E8BCC1;color:#1C1817">12% rosa</div><div style="flex:4;background:#9A4E5C"></div></div>
+  <p class="mt2" style="font-size:14px">Antes: 58% espresso, 24% creme. Agora o claro ocupa 60% e o espresso, somando tinta e blocos, fica perto de um quarto.</p>
+  <h3 class="mt">Combinações aprovadas (contraste AA)</h3>
+  <div class="pairs">
+    <div style="background:#F7F2EB;color:#1C1817;border:1px solid #DCCFC2">Espresso sobre linho<small>16,6 : 1 · padrão</small></div>
+    <div style="background:#F7F2EB;color:#9A4E5C;border:1px solid #DCCFC2">Rosa fundo sobre linho<small>5,3 : 1</small></div>
+    <div style="background:#F7F2EB;color:#6E625C;border:1px solid #DCCFC2">Cinza sobre linho<small>5,6 : 1</small></div>
+    <div style="background:#1C1817;color:#E8BCC1">Rosa sobre espresso<small>10,4 : 1</small></div>
+    <div style="background:#E8BCC1;color:#1C1817">Espresso sobre rosa<small>10,4 : 1</small></div>
+    <div style="background:#1C1817;color:#F3EBE3">Creme sobre espresso<small>14,9 : 1</small></div>
+    <div style="background:#F3EBE3;color:#9A4E5C">Rosa fundo sobre creme<small>4,9 : 1</small></div>
+    
+  </div>
+</div></section>
+
+<section id="s6" class="light"><div class="wrap">
+  <div class="eyebrow">06 · Tipografia</div>
+  <h2>Três vozes, <em>uma hierarquia</em></h2>
+  <div class="grid c3 mt">
+    <div class="spec"><div class="label" style="margin:0 0 18px">Display · Jost</div><div class="big jo" style="font-weight:500">KLANG</div><div class="alpha jo">AA BB CC 0123456789</div><p class="mt2">Títulos em caixa alta, sempre Medium (500) na v5. Regular só em textos grandes de apoio. Labels com tracking largo (+24% a +42%).</p></div>
+    <div class="spec"><div class="label" style="margin:0 0 18px">Corpo · Figtree</div><div class="big fi">Aa</div><div class="alpha fi">Aa Bb Cc Dd 0123456789</div><p class="mt2">Textos, UI e botões. Regular, Medium e SemiBold.</p></div>
+    <div class="spec"><div class="label" style="margin:0 0 18px">Manuscrita · Nothing You Could Do</div><div class="big sc" style="font-size:54px;color:#9A4E5C">real life</div><div class="alpha sc">English for real life</div><p class="mt2">Só em frases curtas de afeto, no máximo uma por peça. Nunca em parágrafo, botão ou informação importante.</p></div>
+  </div>
+  <div class="scale">
+    <div><span>H1 · Jost 500 · caixa alta</span><b class="jo" style="font-weight:500;font-size:clamp(44px,6vw,80px);line-height:.95;text-transform:uppercase">O som da língua</b></div>
+    <div><span>H2 · Jost 500 · caixa alta</span><b class="jo" style="font-weight:500;font-size:40px;text-transform:uppercase">Para quem quer parar de travar</b></div>
+    <div><span>H3 · Jost 500</span><b class="jo" style="font-weight:500;font-size:20px">Aulas ao vivo, do A1 ao C1</b></div>
+    <div><span>Corpo · Figtree 400</span><p style="font-size:17px;color:#1C1817">Inglês com propósito, para você se comunicar com confiança em qualquer lugar do mundo.</p></div>
+    <div><span>Label · Jost 500</span><b class="jo" style="font-weight:500;font-size:12px;letter-spacing:.4em;text-transform:uppercase;color:#9A4E5C">Inglês para uma vida real</b></div>
+    <div><span>Manuscrita</span><b class="sc" style="font-weight:400;font-size:32px;color:#9A4E5C">fluency looks good on you</b></div>
+  </div>
+</div></section>
+
+<section id="s7" class="dark"><div class="wrap">
+  <div class="eyebrow">07 · Estilo de imagem</div>
+  <h2>Luz de abajur, <em>vida real</em></h2>
+  <p class="lead">A fotografia da KLANG é feita pela própria Mayra: cenas quentes, de mesa de estudo, café, caderno, cartões-postais de cidades. Mais atmosfera do que pose. Na v5, a foto é um dos lugares onde o escuro continua vivendo: ela funciona como o bloco espresso da página.</p>
+  <div class="polas mt">
+    <div class="pola"><div style="background:#3A302C;color:#E8BCC1">Mesa de estudo<br>à luz quente</div><span class="script">good conversations</span></div>
+    <div class="pola"><div style="background:#E8BCC1;color:#1C1817">Café, caderno,<br>mãos escrevendo</div><span class="script">brighter days</span></div>
+    <div class="pola"><div style="background:#262120;color:#F3EBE3">Cidades, aeroporto,<br>janela de avião</div><span class="script">new places</span></div>
+  </div>
+  <div class="grid c2 mt">
+    <div class="card"><h3>O que fotografar</h3><ul class="list"><li>Objetos com história: livros, caneca, caderno, postais, notebook</li><li>Pessoas reais falando: videochamada, fone, conversa</li><li>Cidades e viagem como destino, não como cartão de agência</li></ul></div>
+    <div class="card"><h3>Tratamento</h3><ul class="list"><li>Duas luzes: manhã clara perto da janela para peças leves, abajur à noite para peças de clima</li><li>Sombras em marrom, nunca preto azulado</li><li>Um ponto de luz quente, nunca flash frio</li><li>Cores dessaturadas; o rosa vem da marca, não da foto</li></ul></div>
+  </div>
+  <p class="mt2"><strong style="color:#F3EBE3">Nada de banco de imagem corporativo</strong> (aperto de mão, gente genérica no laptop, bandeirinhas). Sem foto boa, a peça resolve só com tipografia espresso sobre linho.</p>
+</div></section>
+
+<section id="s8"><div class="wrap">
+  <div class="eyebrow">08 · Elementos gráficos</div>
+  <h2>Um sistema, <em>muitos papéis</em></h2>
+  <p class="lead">Três elementos fazem a KLANG ser reconhecida: a <strong>borda de papel rasgado</strong> em rosa, a <strong>letra à mão</strong> e as <strong>linhas finas</strong>. Regra de ouro: no máximo dois deles por peça. Dois componentes traduzem o método em imagem: o <strong>perfil por habilidade</strong> e o <strong>ciclo</strong>.</p>
+  <div class="grid c2 mt">
+    <div class="demo" style="padding:0;overflow:hidden"><svg viewBox="0 0 600 160" style="width:100%;display:block" aria-hidden="true"><rect width="600" height="160" fill="#F3EBE3"/><path d="M0 70 L40 82 L85 64 L130 90 L180 76 L230 104 L280 92 L330 118 L380 104 L440 130 L500 116 L560 140 L600 130 L600 160 L0 160Z" fill="#E8BCC1"/><text x="28" y="150" font-family="'Nothing You Could Do',cursive" font-size="24" fill="#1C1817">o som da língua</text></svg><div style="padding:0 30px 30px"><h3>Papel rasgado</h3><p>Borda irregular em rosa pó fechando seções e capas, agora sobre linho ou creme. Sempre na base ou no canto, nunca no meio do texto.</p></div></div>
+    <div class="demo"><div class="rule"><span>o som da língua</span></div><div><h3>Divisor manuscrito</h3><p>Linha fina de 1 px com uma frase curta à mão no centro, separando blocos.</p></div></div>
+    <div class="demo"><div class="skills" aria-label="Exemplo de perfil por habilidade">
+      <div class="row"><span class="nm">Listening</span><span class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span><span class="lv">B2</span></div>
+      <div class="row"><span class="nm">Reading</span><span class="bar"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span><span class="lv">A2</span></div>
+      <div class="row"><span class="nm">Writing</span><span class="bar"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span><span class="lv">A2</span></div>
+      <div class="row"><span class="nm">Use of English</span><span class="bar"><i class="on"></i><i></i><i></i><i></i><i></i></span><span class="lv">A1</span></div>
+      <div class="row"><span class="nm">Speaking</span><span class="bar"><i class="on"></i><i></i><i></i><i></i><i></i></span><span class="lv">A1</span></div>
+    </div><div><h3>Perfil por habilidade</h3><p>Substitui a antiga barra única de nível. Degraus em rosa fundo sobre claro. Cinco linhas, uma por habilidade, cinco degraus do A1 ao C1. Nunca resumir num nível geral: o perfil é o retrato.</p></div></div>
+    <div class="demo"><div class="icons">
+      <div><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M9 10h.01M12 10h.01M15 10h.01"/></svg></div>
+      <div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div>
+      <div><svg viewBox="0 0 24 24"><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6L5.6 18.4"/></svg></div>
+      <div><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></div>
+      <div><svg viewBox="0 0 24 24"><path d="M2 16l20-8-7 12-3-5z"/></svg></div>
+    </div><div><h3>Ícones</h3><p>Traço fino (1,3 px), pontas arredondadas, em rosa fundo sobre claro (rosa pó só dentro de bloco espresso). Círculo só de contorno, nunca preenchido.</p></div></div>
+    <div class="demo" style="grid-column:1/-1"><div class="cycle" aria-label="O ciclo da KLANG"><span>Prepare</span><i>→</i><span class="on">Aula ao vivo</span><i>→</i><span>Workbook</span><i>→</i><span>Feedback</span><i>→</i><span>Retrieval</span><i>→</i><span>Adapt</span><i>↺</i></div><div><h3>O ciclo</h3><p>Pílulas de contorno ligadas por seta fina, fechando em ↺: o próximo Prepare nasce do que o ciclo anterior mostrou. A etapa em foco fica em espresso cheio, uma por vez. Usar em explicações de método, no portal e em carrosséis "Por dentro".</p></div></div>
+  </div>
+</div></section>
+
+<section id="s9"><div class="wrap">
+  <div class="eyebrow">09 · Botões e componentes</div>
+  <h2>UI <em>da marca</em></h2>
+  <div class="grid c2 mt">
+    <div class="card"><h3>Botões</h3>
+      <div class="btns mt2"><button class="btn b-rosa">quero estudar →</button><button class="btn b-creme">quero começar →</button><button class="btn b-out">fazer teste de nível</button></div>
+      <p class="mt2">Pílula, texto em minúsculas, seta no fim. Rosa para o CTA principal (um por tela), espresso para a ação forte de menu, contorno para a secundária.</p></div>
+    <div class="card"><h3>Badges de habilidade e formato</h3>
+      <div class="btns mt2"><span class="bdg" style="background:#E8BCC1;color:#1C1817">Speaking · A2</span><span class="bdg" style="border:1px solid #9A4E5C;color:#9A4E5C">Listening · B2</span><span class="bdg" style="background:#1C1817;color:#F3EBE3">Ao vivo</span><span class="bdg" style="border:1px solid #DCCFC2;color:#6E625C">Ciclo 2 · Aula 14</span></div>
+      <p class="mt2">Jost em caixa alta com tracking largo. O nível sempre vem colado a uma habilidade, nunca sozinho ("Nível B1" não existe na marca). Rosa cheio só para a habilidade em foco.</p></div>
+    <div class="card"><h3>Campos de formulário</h3>
+      <div class="field mt2"><label for="a">Seu nome</label><input id="a" placeholder="Maria Silva"></div>
+      <div class="field"><label for="b">E-mail</label><input id="b" placeholder="voce@email.com"></div>
+      <p>Fundo linho, borda fina, foco em rosa fundo.</p></div>
+    <div><div class="ccard"><div class="top"><span class="label" style="margin:0;color:#1C1817">Soa assim · EP 01</span><b>Thought</b></div><div class="bot"><p style="font-size:14px;color:#6E625C">A pronúncia que mais trava brasileiro, em 40 segundos.</p></div></div><p class="mt2">Card de conteúdo: raio 22 px, borda fina, hover sobe 4 px.</p></div>
+  </div>
+  <div class="card mt2"><h3>Portal da aluna</h3>
+    <div class="portal mt2">
+      <div class="grid" style="gap:10px">
+        <div class="pcard"><div class="label">Continue de onde parou</div><b>Lesson 07 · Workbook</b><small>60% feito</small><div class="prog"><i style="width:60%"></i></div></div>
+        <div class="pcard"><div class="label">Próxima aula</div><b>Life Experiences · Lesson 08</b><small>Present Perfect · [dia e horário]</small></div>
+        <div class="pcard" style="display:flex;justify-content:space-between;align-items:center;gap:14px"><div><div class="label">Prepare</div><b>12 min</b></div><button class="btn b-rosa" style="padding:11px 20px">começar →</button></div>
+      </div>
+      <div class="states">
+        <div><span>Acesso</span><b>Disponível</b></div>
+        <div><span>Ensino</span><b>Aula realizada</b></div>
+        <div><span>Progresso</span><b>Em andamento</b></div>
+        <p style="font-size:14px;margin-top:6px">Os três estados de cada aula aparecem separados, sempre com label em Figtree e valor em Jost espresso. Só um CTA rosa por tela, e no Início ele é sempre o Prepare.</p>
+      </div>
+    </div></div>
+</div></section>
+
+<section id="s10" class="light"><div class="wrap">
+  <div class="eyebrow">10 · Tom de voz</div>
+  <h2>Próximo, elegante, <em>sem milagre</em></h2>
+  <p class="lead">A KLANG fala como a Mayra fala: professora que já viveu do outro lado, não instituição. Português claro, sempre "você", frases curtas em inglês como assinatura emocional (sempre com o sentido claro), zero promessa milagrosa. Fala de habilidades e de evidências, nunca de rótulos: a marca mostra onde a pessoa está em cada parte do inglês e o próximo passo.</p>
+  <div class="grid c2 mt" style="align-items:start">
+    <div><div class="label" style="margin-bottom:14px">A marca diz</div><div class="quote">Inglês não é matéria.<br><em>É passaporte.</em></div></div>
+    <div><div class="label" style="margin-bottom:6px">Frases da marca</div><div class="say"><div>A KLANG não ensina um nível. Ensina uma pessoa.</div><div>English for real life.</div><div>KLANG, o som da língua.</div><div>Erro não é punição, é dado.</div><div>One step at a time.</div></div></div>
+  </div>
+  <div class="grid c2 mt">
+    <div class="yn yes"><b>SIM</b><p style="color:#1C1817">"Com constância, em três meses você já sustenta uma conversa simples sobre a sua rotina."</p></div>
+    <div class="yn no"><b>NÃO</b><p>"Fique fluente em 30 dias!" ou "+500 alunos" sem que isso seja verdade (prova social inventada é proibida).</p></div>
+    <div class="yn yes"><b>SIM</b><p style="color:#1C1817">"Seu Listening está em B2 e o Speaking em A1. O plano usa o que você entende bem como alavanca e dá muito tempo de fala."</p></div>
+    <div class="yn no"><b>NÃO</b><p>"Você é B1." · "Sua nota foi 7,5." · "Acertou 68%." Nível geral, nota e porcentagem não aparecem em nenhuma peça da KLANG.</p></div>
+  </div>
+</div></section>
+
+<section id="s11"><div class="wrap">
+  <div class="eyebrow">11 · Aplicações</div>
+  <h2>A marca <em>no mundo real</em></h2>
+  <h3 class="mt">Instagram</h3>
+  <div class="grid c4 mt2" style="align-items:end">
+    <div><div class="ig-av"><svg class="mono" viewBox="0 0 100 100" role="img" aria-label="Monograma KLANG"><circle cx="50" cy="50" r="50" fill="#E8BCC1"/><path d="M36 22V78M36 53L64 22M47 44L66 78" fill="none" stroke="#1C1817" stroke-width="5"/></svg></div><div class="label" style="text-align:center">Avatar do perfil</div></div>
+    <div><div class="reel" style="background:#F7F2EB;border-color:#DCCFC2"><span class="label" style="margin:0;color:#9A4E5C">Soa assim · EP 01</span><b style="color:#1C1817">Th<em style="color:#9A4E5C">ought</em></b><span class="script" style="font-size:20px">say it with me</span></div><div class="label" style="text-align:center">Capa de carrossel · Reels</div></div>
+    <div><div class="feed">
+      <div style="background:#F7F2EB;color:#1C1817;border:1px solid #DCCFC2">O som da língua</div><div style="background:#1C1817;color:#E8BCC1" class="s">new places</div><div style="background:#F3EBE3;color:#1C1817">Método</div>
+      <div style="background:#F3EBE3;color:#9A4E5C">Por habilidade</div><div style="background:#E8BCC1;color:#1C1817">Soa assim</div><div style="background:#262120;color:#F3EBE3">Bastidor</div>
+      <div style="background:#F3EBE3;color:#9A4E5C">Au pair</div><div style="background:#F7F2EB;color:#9A4E5C;border:1px solid #DCCFC2" class="s">o som da língua</div><div style="background:#F3EBE3;color:#1C1817">Dica</div>
+    </div><div class="label" style="text-align:center">Grid do feed · claro com 1 a 2 blocos escuros por fileira</div></div>
+    <div><div class="story"><span class="label" style="margin:0;color:#1C1817">Como se diz</span><b>"Saudade"<br>= ?</b><div class="box">Responder…</div></div><div class="label" style="text-align:center">Story · caixinha</div></div>
+  </div>
+  <div class="hlc">
+    <div><span><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg></span>Método</div>
+    <div><span><svg viewBox="0 0 24 24"><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6L5.6 18.4"/></svg></span>Níveis</div>
+    <div><span><svg viewBox="0 0 24 24"><path d="M2 16l20-8-7 12-3-5z"/></svg></span>Au pair</div>
+    <div><span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span>Viagem</div>
+    <div><span><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span>Alunos</div>
+  </div>
+  <div class="label" style="text-align:center">Capas de destaque · creme com traço rosa fundo</div>
+  <h3 class="mt">Institucional</h3>
+  <div class="grid c2 mt2">
+    <div class="rep"><div class="label" style="margin:0;color:#9A4E5C">Progress report · 40 aulas</div><h4>De onde você<br>saiu, até aqui</h4><table><tr><td class="k">Listening</td><td>B1 →</td><td class="v">B2</td></tr><tr><td class="k">Reading</td><td>A2 →</td><td class="v">B1</td></tr><tr><td class="k">Writing</td><td>A2 →</td><td class="v">B1</td></tr><tr><td class="k">Use of English</td><td>A1 →</td><td class="v">A2</td></tr><tr><td class="k">Speaking</td><td>A1 →</td><td class="v">A2</td></tr></table><p style="font-size:13px;margin-top:14px">[nome da aluna] · Professora Mayra Balboni · cada linha aponta para a evidência que a sustenta</p><span class="script" style="font-size:24px;display:block;margin-top:8px">well done</span><svg class="sealmini" viewBox="0 0 200 200" role="img" aria-label="Selo KLANG"><circle cx="100" cy="100" r="98" fill="#1C1817"/><circle cx="100" cy="100" r="62" fill="none" stroke="#E8BCC1" stroke-opacity=".5"/><defs><path id="c1C1817" d="M100 100m-80 0a80 80 0 1 1 160 0a80 80 0 1 1 -160 0"/></defs><text fill="#E8BCC1" font-family="Jost, Futura, sans-serif" font-size="11" font-weight="500" letter-spacing="4.2"><textPath href="#c1C1817">KLANG · O SOM DA LÍNGUA · INGLÊS A1 AO C1 · </textPath></text><g transform="translate(50 50)"><path d="M36 22V78M36 53L64 22M47 44L66 78" fill="none" stroke="#E8BCC1" stroke-width="5"/></g></svg></div>
+    <div class="grid" style="gap:14px">
+      <div class="grid c2" style="gap:14px">
+        <div class="bcard" style="background:#F7F2EB;border:1px solid #DCCFC2"><div style="width:130px"><svg class="wm" viewBox="-2 -6 446 108" role="img" aria-label="KLANG"><path d="M4 4V96M4 60L58 4M24 40L62 96M84 4V92H130M146 96L190 8L234 96M254 96V4L316 96V4M425.7 23.6A46 46 0 1 0 434 50H394" fill="none" stroke="#1C1817" stroke-width="8" stroke-linejoin="miter" stroke-miterlimit="10"/></svg></div><div class="script" style="font-size:18px">English for real life</div></div>
+        <div class="bcard" style="background:#E8BCC1;color:#1C1817"><div><b class="jo" style="font-weight:500;font-size:17px;letter-spacing:.06em">MAYRA BALBONI</b><div style="font-size:12px">Professora · Inglês A1 ao C1</div></div><div style="font-size:12px">klang.balbonilab.com · @klang.english</div></div>
+      </div>
+      <div class="label" style="margin:0">Cartão de visita · frente e verso</div>
+      <div class="wpp" style="background:#fff;border-color:#DCCFC2"><svg class="mono" viewBox="0 0 100 100" role="img" aria-label="Monograma KLANG"><circle cx="50" cy="50" r="50" fill="#E8BCC1"/><path d="M36 22V78M36 53L64 22M47 44L66 78" fill="none" stroke="#1C1817" stroke-width="5"/></svg><div><b class="jo" style="font-weight:500;letter-spacing:.2em">KLANG</b><div style="font-size:13px;color:#6E625C">English for real life · Aulas particulares A1 ao C1 · @klang.english</div></div></div>
+      <div class="label" style="margin:0">Assinatura de WhatsApp</div>
+    </div>
+  </div>
+</div></section>
+
+<section id="s12" class="light"><div class="wrap">
+  <div class="eyebrow">12 · Usos corretos e incorretos</div>
+  <h2>Disciplina <em>de marca</em></h2>
+  <div class="dos mt">
+    <div class="do y"><b>SIM</b><p>Fundo linho como padrão, espresso como tinta e em blocos de contraste.</p></div>
+    <div class="do y"><b>SIM</b><p>Rosa pó no CTA e em peças de destaque; rosa fundo quando for texto.</p></div>
+    <div class="do y"><b>SIM</b><p>No máximo uma frase manuscrita por peça.</p></div>
+    <div class="do y"><b>SIM</b><p>Fotos quentes, com pouca luz e objetos reais.</p></div>
+    <div class="do y"><b>SIM</b><p>Nível sempre por habilidade, com evidência por trás.</p></div>
+    <div class="do n"><b>NÃO</b><p>Azul, roxo, vinho ou bordô (bordô é do MIND), cores vibrantes ou fluorescentes.</p></div>
+    <div class="do n"><b>NÃO</b><p>Preto puro e branco frio (isso é da Mayra Balboni fotografia). Nem blush rosado de fundo (isso é do MIND).</p></div>
+    <div class="do n"><b>NÃO</b><p>Trocar o Λ por A comum, inclinar ou engrossar o wordmark.</p></div>
+    <div class="do n"><b>NÃO</b><p>Prova social inventada ou promessa de fluência rápida.</p></div>
+    <div class="do n"><b>NÃO</b><p>Página inteira em espresso: o escuro é bloco, não ambiente.</p></div>
+    <div class="do n"><b>NÃO</b><p>Rótulo de nível geral, nota ou porcentagem ("aluna B1", "nota 8").</p></div>
+  </div>
+</div></section>
+
+<section id="s13"><div class="wrap">
+  <div class="eyebrow">13 · Arquivos finais</div>
+  <h2>O que vai <em>no pacote</em></h2>
+  <div class="files mt">
+    <div><b>SVG</b><p>Wordmark (fundo escuro e claro), logo com assinatura (fundo escuro e claro), monograma (rosa e escuro) e favicon</p></div>
+    <div><b>HTML</b><p>Este manual de marca</p></div>
+    <div><b>PDF</b><p>Relatório de habilidades, Individual Learning Plan, apostila personalizada e progress report, todos na identidade KLANG</p></div>
+    <div><b>HEX</b><p>Paleta com HEX, RGB e CMYK (seção 05), agora com o linho</p></div>
+    <div><b>FONTES</b><p>Jost, Figtree e Nothing You Could Do, gratuitas no Google Fonts</p></div>
+  </div>
+  <p class="mt2"><strong style="color:#1C1817">Wordmark desenhado em linhas:</strong> o KLANG é traço vetorial puro, abre idêntico em qualquer editor ou gráfica. O bordão "o som da língua" usa Jost; para gráfica, converta em curvas antes de enviar.</p>
+</div></section>
+
+<footer><div class="wrap"><svg class="wm" viewBox="-2 -6 446 108" role="img" aria-label="KLANG"><path d="M4 4V96M4 60L58 4M24 40L62 96M84 4V92H130M146 96L190 8L234 96M254 96V4L316 96V4M425.7 23.6A46 46 0 1 0 434 50H394" fill="none" stroke="#F3EBE3" stroke-width="8" stroke-linejoin="miter" stroke-miterlimit="10"/></svg><p>KLANG · O som da língua · Manual de marca v5.0 · proposta clara · Outubro 2026</p></div></footer>
+<script>
+(function(){
+  var els=document.querySelectorAll('section .card, section .stage, section .demo, .princ, .sw, .spec, .pola, .rep, .do, .yn, .mini, .sib > div');
+  if(!('IntersectionObserver' in window)) return;
+  els.forEach(function(e){e.classList.add('reveal')});
+  var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(e){io.observe(e)});
+})();
+</script>
+</body>
+</html>
